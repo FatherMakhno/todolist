@@ -7,13 +7,17 @@ import TaskCatalog from "@/components/TaskCatalog.vue";
 const route = useRoute();
 const index = ref(route.params.index)
 
-const { lists } = useTaskStore()
+const { lists, addTask } = useTaskStore()
+
+const inputValue = ref();
+
+
 </script>
 
 <template>
 <h2>{{ lists[index].name }}</h2>
 <InputText type="text" v-model="inputValue" />
-<PrButton label="Добавить лист задач" @click="" />
+<PrButton label="Добавить лист задач" @click="addTask(index, inputValue)" />
 <TaskCatalog v-if="lists[index].task.length !== 0" v-for="(task, i) in lists[index].task" :key="i" :index="i" :task="task" />
 <div v-else>Задач нет, создайте новую!</div>
 </template>

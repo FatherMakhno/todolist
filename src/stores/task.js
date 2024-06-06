@@ -13,8 +13,20 @@ export const useTaskStore = defineStore('task', () => {
     })
   }
 
+  const addTask = (index, inputValue) => {
+    lists.value[index].task.push({
+      name: inputValue,
+      editing: false
+    })
+  }
+
   const deleteList = (index) => {
     lists.value.splice(index, 1)
+  }
+
+  const deleteTask = (index) => {
+    console.log(index)
+    lists.value[index].task.splice(index, 1)
   }
 
   const editList = (index) => {
@@ -32,6 +44,8 @@ export const useTaskStore = defineStore('task', () => {
     addList,
     deleteList,
     editList,
-    saveList
+    saveList,
+    addTask,
+    deleteTask
   }
 })
