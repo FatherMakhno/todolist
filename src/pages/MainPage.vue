@@ -3,7 +3,7 @@ import { ref, watch } from "vue";
 import Lists from '@/components/ListCatalog.vue';
 import { useTaskStore } from '@/stores/task';
 
-import InputText from 'primevue/inputtext';
+
 
 const { lists, addList } = useTaskStore()
 
@@ -18,8 +18,8 @@ watch(lists, (newValue) => {
 <template>
   <InputText type="text" v-model="inputValue" />
   <PrButton label="Добавить лист задач" @click="addList(inputValue)" />
-  <Lists v-for="(list, index) in lists" :key="index" :list="list" :index="index" :name="list.name" />
-  <!-- <div v-else>Списков задач нет</div> -->
+  <Lists v-if="lists.length !== 0" v-for="(list, index) in lists" :key="index" :list="list" :index="index" :name="list.name" />
+  <div v-else>Списка задач нет, создайте новый!</div>
 </template>
 
 <style lang="scss" scoped></style>

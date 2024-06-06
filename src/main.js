@@ -9,6 +9,7 @@ import router from './router/router'
 import PrimeVue from 'primevue/config'
 import 'primevue/resources/themes/aura-light-green/theme.css'
 import Button from 'primevue/button'
+import InputText from 'primevue/inputtext'
 
 const app = createApp(App)
 
@@ -17,5 +18,6 @@ app.use(router)
 app.use(PrimeVue)
 
 app.component('PrButton', Button)
+app.component('InputText', InputText)
 
 app.mount('#app')

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { useTaskStore } from '@/stores/task';
 
 const { deleteList, editList, saveList } = useTaskStore()
@@ -29,10 +29,13 @@ const inputValue = ref();
 <template>
 
 <div class="list">
-  <p v-if="!list.editing" class="list_name" @click="editList(index)">{{ name }}</p>
+  <router-link v-if="!list.editing" :to="{ name: 'List', params: { index: index } }">
+    <p  class="list_name">{{ name }}</p>
+  </router-link>
   <input v-else v-model="inputValue" @blur="saveList(index, inputValue)" />
-  <PrButton v-if="!list.editing" label="Delete" @click="deleteList(index)" />
+  <PrButton v-if="!list.editing" label="Edit" @click="editList(index)" />
   <PrButton v-else label="Save" @click="saveList(index, inputValue)" />
+  <PrButton label="Delete" @click="deleteList(index)" />
 </div>
 
 

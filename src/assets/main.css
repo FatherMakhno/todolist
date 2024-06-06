@@ -1,2 +1,6 @@
 @import './base.css';
 
+body {
+    padding: 10px 30px;
+    background-color: #10B981;
+}
