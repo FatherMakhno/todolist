@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
+import draggable from "vuedraggable"
 import { useTaskStore } from "@/stores/task";
 import TaskCatalog from "@/components/TaskCatalog.vue";
 
