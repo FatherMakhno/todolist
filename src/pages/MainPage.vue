@@ -9,7 +9,7 @@ const { lists, addList } = useTaskStore()
 
 const inputValue = ref();
 
-watch(lists, (newValue, oldValue) => {
+watch(lists, (newValue) => {
   lists.value = newValue
 })
 
@@ -18,7 +18,7 @@ watch(lists, (newValue, oldValue) => {
 <template>
   <InputText type="text" v-model="inputValue" />
   <PrButton label="Добавить лист задач" @click="addList(inputValue)" />
-  <Lists v-for="(list, index) in lists" :key="index" :index="index" :name="list.name" />
+  <Lists v-for="(list, index) in lists" :key="index" :list="list" :index="index" :name="list.name" />
   <!-- <div v-else>Списков задач нет</div> -->
 </template>
 
