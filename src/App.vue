@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <router-link to="/">
@@ -8,7 +7,6 @@
   <div class="main">
     <router-view></router-view>
   </div>
-  
 </template>
 
 <style scoped>
