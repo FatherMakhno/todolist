@@ -1,11 +1,11 @@
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useTaskStore = defineStore('task', () => {
   const savedLists = JSON.parse(localStorage.getItem('lists'))
   const lists = ref(savedLists || [])
 
-  watch(() => {
+  watchEffect(() => {
     localStorage.setItem('lists', JSON.stringify(lists.value))
   })
 

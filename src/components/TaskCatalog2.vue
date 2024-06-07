@@ -6,22 +6,24 @@ import { VueDraggable } from 'vue-draggable-plus'
 const { deleteTask, editTask, saveTask } = useTaskStore()
 
 defineProps({
-  lists: {
-    type: Object,
-    required: true
-  },
   index: {
     type: Number,
     required: true
+  },
+  tasks: {
+    type: Object,
+    required: true
   }
 })
+
+const modelTastks = defineModel('tasks', { type: Object })
 
 const inputValue = ref()
 </script>
 
 <template>
-  <VueDraggable v-model="lists.task" animation="250">
-    <div v-for="(task, indexTask) in lists.task" :key="indexTask">
+  <VueDraggable v-model="modelTastks" animation="250">
+    <div v-for="(task, indexTask) in modelTastks" :key="indexTask">
       <div class="list">
         <p v-if="!task.editing" class="list_name">{{ task.name }}</p>
         <InputText v-else v-model="inputValue" @blur="saveTask(index, indexTask, inputValue)" />

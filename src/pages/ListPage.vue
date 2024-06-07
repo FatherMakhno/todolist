@@ -17,7 +17,7 @@ const inputValue = ref('')
   <InputText type="text" v-model="inputValue" />
   <PrButton label="Добавить лист задач" @click="addTask(index, inputValue)" />
   <!-- <TaskCatalog v-if="lists[index].task.length !== 0" v-for="(task, i) in lists[index].task" :key="i" :index="index" :indexTask="i" :task="task" /> -->
-  <TaskCatalog2 v-if="lists[index].task.length !== 0" :lists="lists[index]" :index="index" />
+  <TaskCatalog2 v-if="lists[index].task.length !== 0" :index="index" :tasks="lists[index].task" />
   <div v-else>Задач нет, создайте новую!</div>
 </template>
 
