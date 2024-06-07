@@ -22,4 +22,8 @@ watch(lists, (newValue) => {
   <div v-else>Списка задач нет, создайте новый!</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+button {
+  margin-left: 10px;
+}
+</style>

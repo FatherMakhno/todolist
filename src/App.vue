@@ -2,14 +2,16 @@
 </script>
 
 <template>
-  <h1>todolist</h1>
+  <router-link to="/">
+    <h1>todolist</h1>
+  </router-link>
   <div class="main">
     <router-view></router-view>
   </div>
   
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .main {
   padding: 20px;
   background: white;

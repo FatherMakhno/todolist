@@ -32,36 +32,28 @@ const inputValue = ref();
   <router-link v-if="!list.editing" :to="{ name: 'List', params: { index: index } }">
     <p  class="list_name">{{ name }}</p>
   </router-link>
-  <input v-else v-model="inputValue" @blur="saveList(index, inputValue)" />
+  <InputText v-else v-model="inputValue" @blur="saveList(index, inputValue)" />
   <PrButton v-if="!list.editing" label="Edit" @click="editList(index)" />
   <PrButton v-else label="Save" @click="saveList(index, inputValue)" />
-  <PrButton label="Delete" @click="deleteList(index)" />
+  <PrButton label="Delete" severity="danger" @click="deleteList(index)" />
 </div>
 
 
 </template>
 
 <style lang="scss" scoped>
-.droppable {
-  background-color: #eee;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-.draggable {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 5px;
+input {
+    width: 100%;
+    margin-bottom: 20px;
 }
 .list {
+  margin: 10px;
   padding: 5px;
-  max-width: 300px;
+  width: 600px;
   border: 1px solid black;
   border-radius: 10px;
 }
-p {
-  font-size: 16px;
-}
-input {
-  font-size: 16px;
+button {
+    margin-right: 10px;
 }
 </style>

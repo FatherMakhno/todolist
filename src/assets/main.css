@@ -4,3 +4,8 @@ body {
     padding: 10px 30px;
     background-color: #10B981;
 }
+
+a{
+    text-decoration: none;
+    color:black;
+  }
