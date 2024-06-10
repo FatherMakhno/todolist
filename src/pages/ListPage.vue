@@ -21,7 +21,7 @@ const inputValue = ref('')
     v-if="lists[index].task.length !== 0"
     :index="index"
     :tasks="lists[index].task"
-    v-model="lists[index].task"
+    v-model:tasks="lists[index].task"
   />
   <div v-else>Задач нет, создайте новую!</div>
 </template>
